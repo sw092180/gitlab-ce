@@ -46,7 +46,7 @@ VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
 # Copy assets
 COPY assets/wrapper /usr/local/bin/
 
+USER git
+
 # Wrapper to handle signal, trigger runit and reconfigure GitLab
 CMD ["/usr/local/bin/wrapper"]
-
-USER git
