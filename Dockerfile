@@ -38,4 +38,4 @@ EXPOSE 443 80 22
 VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
 
 # start gitlab
-gitlab-ctl reconfigure
+RUN gitlab-ctl reconfigure
