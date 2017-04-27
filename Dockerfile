@@ -2,20 +2,20 @@ FROM centos:centos7
 MAINTAINER Stephen Kolar
 
 # Install required packages
-RUN yum -yq update \
-	&& yum -yq openssh-server openssh-clients
+RUN yum -y update \
+	&& yum -y install openssh-server openssh-clients
 
 RUN systemctl enable sshd \
 	&& systemctl start sshd
 
-RUN yum -yq install curl policycoreutils postfix
+RUN yum -y install curl policycoreutils postfix
 
 RUN systemctl enable postfix \
 	&& systemctl start postfix
 
 RUN curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | bash
 
-Run yum -yq install gitlab-ce
+Run yum -y install gitlab-ce
 
 # Expose web & ssh
 EXPOSE 443 80 22
